@@ -34,7 +34,12 @@ body {
   button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
   }
-  
+
+  leftGallery {
+  position: absolute;
+  left: 50;
+  top: 50;
+  }
   ul {
     padding-inline-start: 0;
     margin-block-start: 0;
