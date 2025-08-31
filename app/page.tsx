@@ -43,6 +43,7 @@ export default function App() {
     <main>
       <h1>My todos</h1>
       <button onClick={createTodo}>+ new</button>
+        <div id="leftGallery">
       <ul>
         {todos.map((todo) => (
           <li 
@@ -50,6 +51,7 @@ export default function App() {
             key={todo.id}>{todo.content}</li>
         ))}
       </ul>
+        </div>
       <div>
         🥳 App successfully hosted. Try creating a new todo.
         <br />
