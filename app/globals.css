@@ -50,12 +50,6 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-leftGallery {
-  position: absolute;
-  left: 50;
-  top: 50;
-}
-
 a {
   color: inherit;
   text-decoration: none;
