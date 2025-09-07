@@ -10,27 +10,32 @@ const schema = a.schema({
   Todo: a
     .model({
       content: a.string(),
-    })
-    //Create the relationships
-     visit: a.belongsTo('Visit', 'vId'//Create the joining table for the many to many relationship that connects messages to visits
+    }),
+  
+   //Create the joining table for the many to many relationship that connects messages to visits
 VisitMessage: a.model({
 //Create the joining fields
       vId: a.id().required(),
       mId: a.id().required(),
-),
+//Create the relationships
+     visit: a.belongsTo('Visit', 'vId'),
      message: a.belongsTo('Message', 'mId'),
       }),
- 
 //Create a table called Visit to hold data for each instance of a visit
 Visit: a.model({
 //Create fields in the Visit table 
      vId: a.id().required(),
+     fName: a.string().required(),
+     lName: a.string().required(),
+     carReg: a.string().required(),
      vDate: a.integer().required(),
      vTime: a.float().required(),
      passReturned: a.boolean(),
-//Add relationship
+  
+//Add relationship to 
       messages: a.hasMany(‘VisitMessage’, ‘vId’),
     }),
+//.identifier(["vId"]),
 //Create the message table to hold the text of any messages sent to people
 Message: a.model({
 //Create the fields in the messages table
@@ -39,10 +44,10 @@ Message: a.model({
       mCreateDate: a.integer().required(),
       mCreateTime: a.float().required(),
       visits: a.hasMany(‘VisitMessage’, ‘mId’),
-      })
-
-    .authorization((allow) => [allow.publicApiKey()]),
-});
+      }),
+}).authorization((allow) => [allow.publicApiKey()]),
+})
+//  .identifier(["mId"])
 
 export type Schema = ClientSchema<typeof schema>;
 
