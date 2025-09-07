@@ -24,7 +24,7 @@ VisitMessage: a.model({
 //Create a table called Visit to hold data for each instance of a visit
 Visit: a.model({
 //Create fields in the Visit table 
-     //vId: a.id().required(),
+     vId: a.id().required(),
      fName: a.string().required(),
      lName: a.string().required(),
      carReg: a.string().required(),
@@ -39,7 +39,7 @@ Visit: a.model({
 //Create the message table to hold the text of any messages sent to people
 Message: a.model({
 //Create the fields in the messages table
-      //mId: a.id().required(),
+      mId: a.id().required(),
       mContent: a.string().required(),
       mCreateDate: a.integer().required(),
       mCreateTime: a.float().required(),
