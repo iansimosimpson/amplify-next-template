@@ -15,8 +15,8 @@ const schema = a.schema({
    //Create the joining table for the many to many relationship that connects messages to visits
 VisitMessage: a.model({
 //Create the joining fields
-      vId: a.id().required(),
-      mId: a.id().required(),
+      vId: a.id(),//.required(),
+      mId: a.id(),//.required(),
 //Create the relationships
      visit: a.belongsTo('Visit', 'vId'),
      message: a.belongsTo('Message', 'mId'),
@@ -26,7 +26,7 @@ Visit: a.model({
 //Create fields in the Visit table 
      vId: a.id().required(),
      mId: a.id(),
-     message: a.belongsTo('Message','mId'),
+     message: a.belongsTo('VisitMessage','mId'),
      fName: a.string().required(),
      lName: a.string().required(),
      carReg: a.string().required(),
