@@ -33,7 +33,7 @@ Visit: a.model({
      passReturned: a.boolean(),
   
 //Add relationship to 
-      messages: a.hasMany(‘VisitMessage’, ‘vId’),
+      messages: a.hasMany('VisitMessage', 'vId'),
     }),
 //.identifier(["vId"]),
 //Create the message table to hold the text of any messages sent to people
@@ -43,7 +43,7 @@ Message: a.model({
       mContent: a.string().required(),
       mCreateDate: a.integer().required(),
       mCreateTime: a.float().required(),
-      visits: a.hasMany(‘VisitMessage’, ‘mId’),
+      visits: a.hasMany('VisitMessage', 'mId'),
       }),
 }).authorization((allow) => [allow.publicApiKey()]),
 })
