@@ -45,8 +45,7 @@ Message: a.model({
       mCreateTime: a.float().required(),
       visits: a.hasMany('VisitMessage', 'mId'),
       }),
-}).authorization((allow) => [allow.publicApiKey()]),
-})
+}).authorization((allow) => [allow.publicApiKey()]);
 //  .identifier(["mId"])
 
 export type Schema = ClientSchema<typeof schema>;
