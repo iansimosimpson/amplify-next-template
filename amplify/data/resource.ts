@@ -25,8 +25,6 @@ VisitMessage: a.model({
 Visit: a.model({
 //Create fields in the Visit table 
      vId: a.id().required(),
-     mId: a.id(),
-     message: a.belongsTo('VisitMessage','mId'),
      fName: a.string().required(),
      lName: a.string().required(),
      carReg: a.string().required(),
