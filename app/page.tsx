@@ -34,6 +34,20 @@ export default function App() {
     });
   }
 
+function createVisit(){
+    client.models.Visit.create({
+        lName: "Daffy",
+        fName: "Duck",
+        carReg: "fffffff",
+        vDate: 3000,
+        vTime: 0.95,
+        passReturned: false,
+      });
+}
+            
+            
+        
+
     
   function deleteTodo(id: string) {
     client.models.Todo.delete({ id })
