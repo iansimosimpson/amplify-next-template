@@ -17,6 +17,7 @@ export default function App() {
     
   const { signOut } = useAuthenticator();
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
+  const [visits, setVisits] = useState<Array<Schema["Visit"]["type"]>>([]);
 
   function listTodos() {
     client.models.Todo.observeQuery().subscribe({
@@ -34,7 +35,7 @@ export default function App() {
     });
   }
 
-function listTodos() {
+function listVisits() {
     client.models.Visit.observeQuery().subscribe({
       next: (data) => setVisits([...data.items]),
     });
