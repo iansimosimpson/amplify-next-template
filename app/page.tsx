@@ -34,6 +34,16 @@ export default function App() {
     });
   }
 
+function listTodos() {
+    client.models.Visit.observeQuery().subscribe({
+      next: (data) => setVisits([...data.items]),
+    });
+  }
+
+  useEffect(() => {
+    listVisits();
+  }, []);
+
 function createVisit(){
     client.models.Visit.create({
         lName: "Daffy",
@@ -45,13 +55,13 @@ function createVisit(){
       });
 }
             
-            
-        
-
-    
-  function deleteTodo(id: string) {
+function deleteTodo(id: string) {
     client.models.Todo.delete({ id })
   }
+
+function deleteVisit(id: string) {
+    client.models.Visit.delete({ id })
+  } 
 
   return (
     <main>
@@ -73,7 +83,17 @@ function createVisit(){
           Review next steps of this tutorial.
         </a>
       </div>
-            <button onClick={signOut}>Sign out</button>
+        <h1>My visits</h1>
+                     <button onClick={createVisit}>+ new</button>
+        <button onClick={signOut}>Sign out</button>
+        <ul>
+            {visits.map((visit) => (
+        <li
+            onClick={() => deleteVisit(visit.id)}
+            key={visit.id}>{visit.lName}</li>
+        ))}
+        </ul>
+        <button onClick={signOut}>Sign out</button>   
     </main>
   );
 }
